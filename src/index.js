@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import Home from './Components/Home';
 import Login from './Components/Login'; 
 import Register from './Components/Register';
+import Dashboard from './Components/Dashboard';
 const container = document.getElementById('root');
 const root = createRoot(container);
 const router = createBrowserRouter([
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register />,
       },
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      }
     ],
   },
 ])

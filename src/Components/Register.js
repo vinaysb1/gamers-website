@@ -3,12 +3,28 @@ import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
 
 function Register() {
-  const history = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleRegister = () => {
-    // Your registration logic here
-    // Redirect to sign in after successful registration
-    history.push('/login');
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://localhost:5000/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+      if (response.ok) {
+        navigate('/login');
+      } else {
+        console.error('Failed to register');
+      }
+    } catch (error) {
+      console.error('Failed to register', error);
+    }
   };
 
   return (
@@ -17,8 +33,8 @@ function Register() {
       <h1>Get Started</h1>
       <p>Already have an account? <Link to="/login">Click to sign in</Link></p>
       <form onSubmit={handleRegister}>
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
+        <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+        <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
         <input type="password" placeholder="Confirm Password" />
         <button type="submit">Submit</button>
       </form>
