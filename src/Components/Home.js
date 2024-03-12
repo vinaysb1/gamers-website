@@ -22,8 +22,8 @@ const Home = () => {
       
         <div className="navbar">
           <ul>
-            <li>Home</li>
-            <li>News</li>
+            <li className='homeBtn' ><Link to={'/home'}>Home</Link></li>
+            <li className='newsBtn' ><Link to={'/news'}>News</Link></li>
           </ul>
         </div>
         

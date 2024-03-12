@@ -8,6 +8,7 @@ import Home from './Components/Home';
 import Login from './Components/Login'; 
 import Register from './Components/Register';
 import Dashboard from './Components/Dashboard';
+import News from './Components/News';
 const container = document.getElementById('root');
 const root = createRoot(container);
 const router = createBrowserRouter([
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element: <Dashboard />,
+      },
+      {
+        path: "/news",
+        element: <News />,
       }
     ],
   },
