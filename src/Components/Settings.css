@@ -1,0 +1,65 @@
+.main-div {
+    display: flex;
+    height: 100%;
+  }
+  
+  .left-div {
+    width: 25%;
+    background-color: #f5f5f5;
+    padding: 20px;
+  }
+  
+  .left-div ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .left-div li {
+    padding: 10px 0;
+    cursor: pointer;
+  }
+  
+  .left-div li:hover {
+    background-color: #ddd;
+  }
+  
+  .right-div {
+    width: 75%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .right-div .searchbar {
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #ddd;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }

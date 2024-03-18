@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
+import { useAuth } from './Auth';
 
 function Login() {
+const {login} = useAuth();
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -17,7 +20,9 @@ function Login() {
         },
         body: JSON.stringify({ email, password })
       });
+      const data = await response.json();
       if (response.ok) {
+        login(data.token);
         navigate('/dashboard');
       } else {
         alert('Failed to login');

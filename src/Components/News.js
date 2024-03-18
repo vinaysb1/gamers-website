@@ -1,19 +1,22 @@
-// News.js
 import React, { useState, useEffect } from 'react';
-import './News.css';
+import { Link } from 'react-router-dom';
 
 const News = () => {
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Fetch news data from backend
     fetchNews();
   }, []);
 
   const fetchNews = async () => {
     try {
-      const response = await fetch('http://localhost:5000/news'); // Adjust URL if necessary
+      const token = localStorage.getItem('token');
+      const response = await fetch('http://localhost:5000/news', {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
       if (!response.ok) {
         throw new Error('Failed to fetch news data');
       }
@@ -37,11 +40,10 @@ const News = () => {
             <div key={index} className="col-lg-4 col-md-6 mb-4">
               <div className="card">
                 <div className="card-body">
-                  <h5 className="card-title">{item.main_title}</h5>
+                  <Link to={`/news/${item.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <h5 className="card-title">{item.main_title}</h5>
+                  </Link>
                   <p className="card-text">{item.main_content}</p>
-                  <h6 className="card-subtitle mb-2 text-muted">{item.sub_title1}</h6>
-                  <p className="card-text">{item.sub_content1}</p>
-                  <p className="card-text">{item.sub_content2}</p>
                 </div>
               </div>
             </div>

@@ -1,5 +1,5 @@
 import React, { StrictMode } from 'react';
-import ReactDOM from 'react-dom/client';
+// import ReactDOM from 'react-dom/client';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
@@ -9,36 +9,56 @@ import Login from './Components/Login';
 import Register from './Components/Register';
 import Dashboard from './Components/Dashboard';
 import News from './Components/News';
+import NewsDetail from './Components/NewsDetail';
+import Auth from './Components/Auth';
+import Settings from './Components/Settings';
+import SupportTicket from './Components/SupportTicket';
 const container = document.getElementById('root');
 const root = createRoot(container);
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    
     children: [
       {
-        path: "/login",
+        path: "login", // Modified: Relative path
         element: <Login />,
       },
-        {
-        path: "/register",
+      {
+        path: "register", // Modified: Relative path
         element: <Register />,
       },
       {
-        path: "/dashboard",
+        path: "dashboard", // Modified: Relative path
         element: <Dashboard />,
       },
       {
-        path: "/news",
+        path: "news", // Modified: Relative path
         element: <News />,
-      }
+      },
+      {
+        path: "news/:id", // Modified: Relative path
+        element: <NewsDetail />,
+      },
+      {
+        path: "settings", // Modified: Relative path
+        element: <Settings />,
+        children: [
+          {
+            path: "support-tickets", // Modified: Relative path
+            element: <SupportTicket />,
+          },
+        ],
+      },
     ],
   },
-])
+]);
+
 root.render(
   <StrictMode>
+    <Auth>
     <RouterProvider router={router} />
+    </Auth>
   </StrictMode>
 );
 

@@ -21,7 +21,35 @@
   .right button {
     margin-left: 20px;
   }
-
+  .navbar ul li {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .navbar ul li a {
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent */
+  }
+  
+  .navbar ul li:hover {
+    background-color: #555; /* Background color on hover */
+  }
+  
+  .homeBtn a,
+  .newsBtn a,
+  .settingsBtn a {
+    display: block;
+    padding: 10px;
+    color: #f0f0f0;
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+  }
+  
+  .homeBtn a:hover,
+  .newsBtn a:hover,
+  .settingsBtn a:hover {
+    background-color: #555; /* Background color on hover */
+  }
+  
   .right button.SignInBtn {
     background-color: #463939;
     color: white;
