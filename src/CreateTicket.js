@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const CreateTicket = () => {
   const [title, setTitle] = useState('');
@@ -36,24 +37,23 @@ const CreateTicket = () => {
       return;
     }
 
-    // Prepare form data
     const formData = new FormData();
     formData.append('title', title);
     formData.append('subject', subject);
     formData.append('description', description);
     formData.append('image', image);
 
-    // Submit form data to backend
     try {
-      const response = await fetch('http://localhost:5000/settings/support-tickets/create-ticket', {
-        method: 'POST',
-        body: formData,
+      await axios.post('http://localhost:5000/api/tickets', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
       });
-      const data = await response.json();
-      console.log('Ticket created successfully:', data);
+      alert('Ticket created successfully!');
       // Optionally, you can redirect the user or perform other actions upon successful submission
     } catch (error) {
       console.error('Error creating ticket:', error);
+      alert('Failed to create ticket. Please try again later.');
       // Handle errors accordingly, e.g., display an error message to the user
     }
   };
