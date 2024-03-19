@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './SupportTicket.css';
 import axios from 'axios';
 
@@ -8,7 +9,7 @@ const SupportTicket = () => {
   useEffect(() => {
     const fetchTicketData = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/tickets');
+        const response = await axios.get('http://localhost:5002/api/tickets');
         setTicketData(response.data);
       } catch (error) {
         console.error('Error fetching ticket data:', error);
@@ -27,7 +28,9 @@ const SupportTicket = () => {
         </div>
         <div className="upper-right">
           <input type="text" placeholder="Search..." />
+          <Link to="/settings/create-ticket">
           <button>Add Ticket</button>
+          </Link>
         </div>
       </div>
 

@@ -5,7 +5,6 @@ const CreateTicket = () => {
   const [title, setTitle] = useState('');
   const [subject, setSubject] = useState('question');
   const [description, setDescription] = useState('');
-  const [image, setImage] = useState(null);
   const [termsAgreed, setTermsAgreed] = useState(false);
 
   const handleTitleChange = (event) => {
@@ -20,11 +19,6 @@ const CreateTicket = () => {
     setDescription(event.target.value);
   };
 
-  const handleImageChange = (event) => {
-    const file = event.target.files[0];
-    setImage(file);
-  };
-
   const handleTermsAgreedChange = () => {
     setTermsAgreed(!termsAgreed);
   };
@@ -37,17 +31,12 @@ const CreateTicket = () => {
       return;
     }
 
-    const formData = new FormData();
-    formData.append('title', title);
-    formData.append('subject', subject);
-    formData.append('description', description);
-    formData.append('image', image);
-
     try {
-      await axios.post('http://localhost:5000/api/tickets', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+      await axios.post('http://localhost:5002/api/tickets', {
+        title,
+        subject,
+        description,
+        // image: null, // Remove image from the payload
       });
       alert('Ticket created successfully!');
       // Optionally, you can redirect the user or perform other actions upon successful submission
@@ -78,9 +67,7 @@ const CreateTicket = () => {
           <label htmlFor="description">Description:</label>
           <textarea id="description" value={description} onChange={handleDescriptionChange} rows="4" placeholder="Enter description..." required />
         </div>
-        <div>
-          <input type="file" accept="image/*" onChange={handleImageChange} />
-        </div>
+        {/* Image upload field removed */}
         <div>
           <input type="checkbox" id="terms" checked={termsAgreed} onChange={handleTermsAgreedChange} required />
           <label htmlFor="terms">I agree to the terms and conditions</label>
