@@ -13,6 +13,7 @@ import NewsDetail from './Components/NewsDetail';
 import Auth from './Components/Auth';
 import Settings from './Components/Settings';
 import SupportTicket from './Components/SupportTicket';
+import CreateTicket from './CreateTicket';
 const container = document.getElementById('root');
 const root = createRoot(container);
 const router = createBrowserRouter([
@@ -48,6 +49,11 @@ const router = createBrowserRouter([
             path: "support-tickets", // Modified: Relative path
             element: <SupportTicket />,
           },
+          {
+            path: "create-ticket", // Modified: Relative path
+            element: <CreateTicket />,
+          },
+
         ],
       },
     ],

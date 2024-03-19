@@ -29,7 +29,7 @@ function Register() {
 
   return (
     <div className="register">
-      <img src="path_to_your_logo" alt="POGR Logo" />
+        <img src={require('../assets/images.jpg')} alt="POGR Logo" />
       <h1>Get Started</h1>
       <p>Already have an account? <Link to="/login">Click to sign in</Link></p>
       <form onSubmit={handleRegister}>

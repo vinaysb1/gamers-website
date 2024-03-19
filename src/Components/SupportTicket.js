@@ -1,19 +1,26 @@
-// SupportTicket.js
-import React from 'react';
-import './SupportTicket.css'; // Make sure to create SupportTicket.css for styling
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import './SupportTicket.css';
+import axios from 'axios';
 
 const SupportTicket = () => {
-  // Generate random ticket data
-  const ticketData = [
-    { id: 1, subject: "Issue with login", category: "Technical", submitted: "2024-03-18", status: "Open" },
-    { id: 2, subject: "Payment query", category: "Billing", submitted: "2024-03-16", status: "Closed" },
-    // Add more ticket data as needed
-  ];
+  const [ticketData, setTicketData] = useState([]);
+
+  useEffect(() => {
+    const fetchTicketData = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/tickets');
+        setTicketData(response.data);
+      } catch (error) {
+        console.error('Error fetching ticket data:', error);
+        // Handle error gracefully, e.g., show an error message to the user
+      }
+    };
+
+    fetchTicketData();
+  }, []);
 
   return (
     <div className="main-div2">
-      {/* Upper area */}
       <div className="upper-div">
         <div className="upper-left">
           <h2>Your Tickets</h2>

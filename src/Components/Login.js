@@ -34,7 +34,7 @@ const {login} = useAuth();
 
   return (
     <div className="login">
-      <img src="path_to_your_logo" alt="POGR Logo" />
+      <img src={require('../assets/images.jpg')} alt="POGR Logo" />
       <h1>Welcome Back</h1>
       <p>Don't have an account? <Link to="/register">Create a new one</Link></p>
       <form onSubmit={handleLogin}>
