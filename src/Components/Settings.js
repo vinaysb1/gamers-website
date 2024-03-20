@@ -12,9 +12,8 @@ const Settings = () => {
           <li>My Account</li>
           <li>Password & Security</li>
           <li>Refer a friend</li>
+          <li><Link to={'/settings/faq'}>FAQ</Link></li>       
           <li><Link to={'/settings/support-tickets'}>Support tickets</Link></li>
-       
-          <li>Questions</li>
           <li>Help & Feedback</li>
         </ul>
       </div>

@@ -1,42 +1,44 @@
+/* Settings.css */
 .main-div {
-    display: flex;
-    height: 100%;
-  }
-  
-  .left-div {
-    width: 25%;
-    background-color: #f5f5f5;
-    padding: 20px;
-  }
-  
-  .left-div ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .left-div li {
-    padding: 10px 0;
-    cursor: pointer;
-  }
-  
-  .left-div li:hover {
-    background-color: #ddd;
-  }
-  
-  .right-div {
-    width: 75%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-  }/* SupportTicket.css */
-
-/* Main container */
-.main-div {
-  margin-top: 20px;
-  
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  height: 100%;
 }
 
-/* Upper area */
+.left-div {
+  width: 25%;
+  background-color: #292936;
+  padding: 20px;
+  color: #fff;
+}
+
+.left-div ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.left-div li {
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.left-div li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.right-div {
+  width: 75%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* SupportTicket.css */
+.main-div {
+  margin-top: 20px;
+}
+
 .upper-div {
   display: flex;
   justify-content: space-between;
@@ -44,18 +46,15 @@
   margin-bottom: 20px;
 }
 
-/* Left side of upper area */
 .upper-left {
   flex: 1;
 }
 
-/* Right side of upper area */
 .upper-right {
   display: flex;
   align-items: center;
 }
 
-/* Search input */
 .upper-right input[type="text"] {
   margin-right: 10px;
   padding: 8px;
@@ -63,7 +62,6 @@
   border-radius: 4px;
 }
 
-/* Add ticket button */
 .upper-right button {
   padding: 8px 15px;
   background-color: #007bff;
@@ -77,12 +75,10 @@
   background-color: #0056b3;
 }
 
-/* Lower area */
 .lower-div {
-  margin-top: 20px; /* Adjust as needed */
+  margin-top: 20px;
 }
 
-/* Ticket table */
 .ticket-table {
   width: 100%;
   border-collapse: collapse;
@@ -101,41 +97,4 @@
 
 .ticket-table tbody tr:hover {
   background-color: #f2f2f2;
-}
-
-  
- /* Settings.css */
-.main-div {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  
-}
-
-.left-div {
-  width: 30%;
-}
-
-.left-div ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.left-div ul li {
-  padding: 10px;
-  cursor: pointer;
-}
-
-.left-div ul li:hover {
-  background-color: #cccccc; /* Grey */
-  color: #867f7f; /* White */
-}
-
-.right-div {
-  width: 60%;
-}
-
-.right-div h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
 }

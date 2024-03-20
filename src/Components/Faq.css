@@ -1,0 +1,39 @@
+.faq-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .faq-item {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #343444;
+    cursor: pointer;
+    width: 700px;
+  }
+  
+  .faq-arrow {
+    transition: transform 0.3s ease;
+  }
+  
+  .faq-arrow.open {
+    transform: rotate(180deg);
+  }
+  
+  .faq-answer {
+    padding: 10px;
+    background-color: #fff;
+  }

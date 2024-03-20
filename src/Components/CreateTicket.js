@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './CreateTicket.css';
 
 const CreateTicket = () => {
   const [title, setTitle] = useState('');

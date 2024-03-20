@@ -41,8 +41,8 @@ const SupportTicket = () => {
           <thead>
             <tr>
               <th>#</th>
+              <th>title</th>
               <th>Subject</th>
-              <th>Category</th>
               <th>Submitted</th>
               <th>Status</th>
             </tr>
@@ -51,8 +51,8 @@ const SupportTicket = () => {
             {ticketData.map(ticket => (
               <tr key={ticket.id}>
                 <td>{ticket.id}</td>
+                <td>{ticket.title}</td>
                 <td>{ticket.subject}</td>
-                <td>{ticket.category}</td>
                 <td>{ticket.submitted}</td>
                 <td>{ticket.status}</td>
               </tr>
